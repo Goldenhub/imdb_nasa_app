@@ -1,18 +1,16 @@
-import {Link} from "react-router-dom"
-import {Header} from "./Header"
-import {Cards} from "./Cards"
-
+import { Link } from "react-router-dom";
+import { Header } from "./Header";
+import { Main } from "./Main";
 
 export function Home() {
-    return (
+  return (
     <div>
-        <Header />
-        <main>
-            <Cards />
-        </main>
-        <nav>
-            <Link to="movies">About | </Link>
-        </nav>
+      <Header />
+      <Main />
+
+      <nav>
+        <Link to="movies">About | </Link>
+      </nav>
     </div>
-    )
+  );
 }
