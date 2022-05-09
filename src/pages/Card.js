@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Card({ src, alt, desc, popularity, title, date }) {
+function Card({ src, desc, popularity, title, date }) {
   return (
     <div style={{ 
         background: "#fff", 

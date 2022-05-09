@@ -26,7 +26,6 @@ export function Header() {
   if (!data) return null;
 
   if (!loading) {
-    console.log(data?.media_type);
     return (
       <header style={{height: '40vh'}}>
         {

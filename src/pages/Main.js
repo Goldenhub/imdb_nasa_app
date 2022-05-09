@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import config from "../config.json";
+import img from "../img/gallery.png"
 
 export function Main() {
   const [dataList, setDataList] = useState({});
@@ -16,28 +17,29 @@ export function Main() {
       .then(() => setIsLoading(false))
       .catch(setError);
   }, []);
-  return (
-    <main
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-        gridGap: "2rem",
-        padding: "20px"
-      }}
-    >
-      {dataList.results.map((item) => {
-        return (
-          <Card
-            key={item.id}
-            src={item.poster_path}
-            alt={item.title}
-            desc={item.overview}
-            popularity={item.popularity}
-            title={item.title}
-            date={item.release_date}
-          />
-        );
-      })}
-    </main>
-  );
+  if(!isloading) {
+    return (
+      <main
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gridGap: "2rem",
+          padding: "20px"
+        }}
+      >
+        {dataList.results && dataList.results.map((item) => {
+          return (
+            <Card
+              key={item.id}
+              src={item.poster_path}
+              desc={item.overview}
+              popularity={item.popularity}
+              title={item.title}
+              date={item.release_date}
+            />
+          );
+        })}
+      </main>
+    );
+  }
 }
