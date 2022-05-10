@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import config from "../config.json";
-import img from "../img/gallery.png"
+
 
 export function Main() {
   const [dataList, setDataList] = useState({});

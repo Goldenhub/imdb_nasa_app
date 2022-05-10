@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import config from "../config.json";
 
 export function Header() {
@@ -28,10 +28,6 @@ export function Header() {
   if (!loading) {
     return (
       <header style={{position: 'relative'}}>
-        <h1 style={{textAlign: 'center', fontSize: '20px', padding: '10px 20px', color: 'rgb(142, 202, 230)'}}>
-          <span style={{color: 'rgb(255, 183, 3)'}}>NASA: </span>Picture of the Day
-          <div>{new Date(data.date).toDateString()}</div>
-        </h1>
         {
             data.media_type === "video" ?
             <embed type="video/mp4"
@@ -39,11 +35,17 @@ export function Header() {
                 width="100%"
                 height="100%" 
             />
-            : 
-            <img style={{
-              display: 'block',
-              maxWidth: '100%'
-            }} src={data.url} alt={data.title} />
+            :
+            <Fragment>
+              <h1 style={{textAlign: 'center', fontSize: '20px', padding: '10px 20px', color: 'rgb(142, 202, 230)', width: 'calc(100% - 40px)'}}>
+                <span style={{color: 'rgb(255, 183, 3)'}}>NASA: </span>Picture of the Day
+                <div>{new Date(data.date).toDateString()}</div>
+              </h1> 
+              <img style={{
+                display: 'block',
+                width: '100%'
+              }} src={data.url} alt={data.title} />
+            </Fragment>
         }
       </header>
     );
