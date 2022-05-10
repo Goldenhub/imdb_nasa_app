@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import placeholder from "../img/gallery.png"
 
-function Card({ src, desc, popularity, title, date }) {
+function Card({ src, id, desc, popularity, title, date }) {
+    let image = `url(https://image.tmdb.org/t/p/original${src})`;
+    if(src == null){
+        image = placeholder;
+    }
   return (
     <div style={{ 
         background: "#fff", 
@@ -9,10 +14,9 @@ function Card({ src, desc, popularity, title, date }) {
         border: "1px solid rgb(255, 255, 255)",
         borderRadius: "4px"
     }}>
-      <Link to="/movies/706614">
-        {/* <img src={src} alt={alt} /> */}
+      <Link to={`/movies/${id}`}>
         <div style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/original${src})`,
+                backgroundImage: `${image}`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center center',

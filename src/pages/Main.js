@@ -31,6 +31,7 @@ export function Main() {
           return (
             <Card
               key={item.id}
+              id={item.id}
               src={item.poster_path}
               desc={item.overview}
               popularity={item.popularity}

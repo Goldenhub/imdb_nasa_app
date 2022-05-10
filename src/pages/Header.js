@@ -27,7 +27,11 @@ export function Header() {
 
   if (!loading) {
     return (
-      <header style={{height: '40vh'}}>
+      <header style={{position: 'relative'}}>
+        <h1 style={{textAlign: 'center', fontSize: '20px', padding: '10px 20px', color: 'rgb(142, 202, 230)'}}>
+          <span style={{color: 'rgb(255, 183, 3)'}}>NASA: </span>Picture of the Day
+          <div>{new Date(data.date).toDateString()}</div>
+        </h1>
         {
             data.media_type === "video" ?
             <embed type="video/mp4"
@@ -36,7 +40,10 @@ export function Header() {
                 height="100%" 
             />
             : 
-            <img src={data.url} alt={data.title} />
+            <img style={{
+              display: 'block',
+              maxWidth: '100%'
+            }} src={data.url} alt={data.title} />
         }
       </header>
     );
