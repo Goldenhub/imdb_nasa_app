@@ -21,14 +21,7 @@ export function Main() {
 
   if(!isloading) {
     return (
-      <main
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gridGap: "2rem",
-          padding: "20px"
-        }}
-      >
+      <main className="main">
         {dataList.results && dataList.results.map((item) => {
           return (
             <Card

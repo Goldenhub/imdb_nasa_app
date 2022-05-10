@@ -34,14 +34,11 @@ export function Header() {
             />
             :
             <Fragment>
-              <h1 style={{textAlign: 'center', fontSize: '20px', padding: '10px 20px', color: 'rgb(142, 202, 230)', width: 'calc(100% - 40px)'}}>
-                <span style={{color: 'rgb(255, 183, 3)'}}>NASA: </span>Picture of the Day
+              <h1 className="header__h1">
+                <span className="header__h1__span">NASA: </span>Picture of the Day
                 <div>{new Date(data.date).toDateString()}</div>
               </h1> 
-              <img style={{
-                display: 'block',
-                width: '100%'
-              }} src={data.url} alt={data.title} />
+              <img className="header__img" src={data.url} alt={data.title} />
             </Fragment>
         }
       </header>
