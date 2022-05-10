@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import config from "../config.json";
+import {MainSvg} from "./Svg";
 
 
 export function Main() {
@@ -8,15 +9,17 @@ export function Main() {
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
+    (async function() {
     setIsLoading(true);
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${config.imdb}&language=en-US&query=NASA&include_adult=false&1`
-    )
-      .then((response) => response.json())
-      .then(setDataList)
-      .then(() => setIsLoading(false))
-      .catch(setError);
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${config.imdb}&language=en-US&query=NASA&include_adult=false&1`)
+    const data = await response.json();
+    setDataList(data);
+    setIsLoading(false);
+    })();
   }, []);
+  
+  if(isloading) return <MainSvg />
+
   if(!isloading) {
     return (
       <main

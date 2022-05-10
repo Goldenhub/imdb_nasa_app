@@ -5,10 +5,11 @@ import config from "../config.json";
 
 export function Movie() {
   const { id } = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState(null);
   const [isloading, setIsLoading] = useState(false);
   useEffect(() => {
     (async function(){
+        if(!id) return;
         setIsLoading(true);
         const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${config.imdb}`)
         const data = await response.json();
@@ -18,6 +19,8 @@ export function Movie() {
   }, [id]);
 
   if (isloading) return <p style={{ color: "#fff" }}>Loading...</p>;
+  if (!movie) return null;
+
   if (!isloading) {
     return (
       <div style={{ color: "#fff" }}>
