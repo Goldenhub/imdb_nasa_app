@@ -7,7 +7,6 @@ import {MainSvg} from "./Svg";
 export function Main() {
   const [dataList, setDataList] = useState({});
   const [isloading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   useEffect(() => {
     (async function() {
     setIsLoading(true);
