@@ -4,7 +4,7 @@ import config from "../config.json";
 import {MainSvg} from "./Svg";
 
 
-export function Main() {
+function Main() {
   const [dataList, setDataList] = useState({});
   const [isloading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -39,3 +39,5 @@ export function Main() {
     );
   }
 }
+
+export default Main;
