@@ -1,7 +1,7 @@
 import { Header } from "./Header";
 import { Main } from "./Main";
 
-export function Home() {
+function Home() {
   return (
     <>
       <Header />
@@ -9,3 +9,5 @@ export function Home() {
     </>
   );
 }
+
+export default Home;

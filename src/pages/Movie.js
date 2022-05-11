@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import config from "../config.json";
+import './styles/Movie.css';
 
-export function Movie() {
+function Movie() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [isloading, setIsLoading] = useState(false);
@@ -23,11 +24,12 @@ export function Movie() {
 
   if (!isloading) {
     return (
-      <div style={{ color: "#fff" }}>
+      <div className="movie">
         {movie.poster_path && <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
           layout="responsive"
           alt={movie.title}
+          className="movie__img"
         />}
         <h2>
           <strong>Title: </strong>
@@ -95,3 +97,5 @@ export function Movie() {
     );
   }
 }
+
+export default Movie;

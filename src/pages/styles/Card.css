@@ -1,0 +1,17 @@
+.card {
+    background: #fff;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.card__content {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: block;
+    min-height: 400px;
+    width: 100%;
+    margin: 0px 0px 20px;
+}

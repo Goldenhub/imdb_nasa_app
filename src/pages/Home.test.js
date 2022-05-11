@@ -1,9 +1,9 @@
 
 import { render } from "@testing-library/react";
-import {Home} from "./Home";
+import Home from "./Home";
 
 describe('Home', () => {
-    test("renders Home Component", () => {
+    it("rendered Home Component", () => {
         render(<Home />);
     })
 })
